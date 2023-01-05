@@ -13,8 +13,7 @@ appauthor="Marco Galanti"
 appdescription="This app use RestAPI for performing different functions for testing and demo purpose"
 appdisclaimer="DEMO only, not intended for production use"
 
-
-app = Flask(__name__)
+app = Flask(__name__, static_folder="static", template_folder="templates")
 app.secret_key = environ['SECRET_KEY']
 basedir = path.abspath(path.dirname(__file__))
 
@@ -41,9 +40,7 @@ import views
 # Blueprint Setup
 app.register_blueprint(country, url_prefix="/countries/")
 
-app.config['DEBUG'] = 1
 
-app = Flask(__name__, static_folder="static", template_folder="templates")
 def printlog(entry, severity="info"):
     severity = severity.lower()
     timestamp = datetime.datetime.now().strftime("%d%b%y - %H:%M:%S -> ")
