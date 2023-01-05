@@ -33,7 +33,7 @@ login_manager = LoginManager(app)
 login_manager.init_app(app)
 migrate = Migrate(app, db)
 
-import users_view, countries_view, addresses_view
+import users_view, addresses_view
 
 from country.views import country
 import views
