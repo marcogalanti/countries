@@ -1,6 +1,6 @@
 import requests, re
 from countries import app, db
-from flask import request, jsonify, render_template, flash, make_response, redirect, url_for
+from flask import Blueprint, request, jsonify, render_template, flash, make_response, redirect, url_for
 from flask_login import login_required, login_user, logout_user
 from models.country import Country
 
