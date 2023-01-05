@@ -20,6 +20,7 @@ basedir = path.abspath(path.dirname(__file__))
 
 #### SQLITE3 DB
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + path.join(basedir, 'countries.db')
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 ###############
 
 # POSTGRESQL DB
