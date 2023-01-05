@@ -47,7 +47,7 @@ def check_username(self,field):
 def logout():
     logout_user()
     flash('you logged out')
-    return redirect(url_for('index'))
+    return redirect(url_for('country.index'))
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -62,7 +62,7 @@ def login():
             flash(f'user {request.form["email"]} logged in', 'info')
             next = request.args.get('next')
             if (next == None) or (not next[0]=='/'):
-                next = url_for('index')
+                next = url_for('country.index')
             return redirect(next)
         else:
             flash(f'User not found or wrong password', 'danger')
