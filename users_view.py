@@ -9,7 +9,8 @@ from models.country import Country
 from models.address import Address
 #
 from user_forms import LoginForm, RegisterForm
-import users_view, countries_view, addresses_view
+import users_view, addresses_view
+import country.views
 
 def check_password_valid(password):
     if len(password) < 8:
