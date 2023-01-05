@@ -211,7 +211,11 @@ def dbg(obj, private="public"):
 def create_tables():
     db.create_all()
 
-if __name__ == '__main__':
-    db.init_app()
-    app.run(port=environ['FLASK_PORT'], debug=environ['FLASK_DEBUG'])
-
+if __name__ == "__main__":
+    db.init_app(app)
+    port = environ['FLASK_PORT']
+    debug = environ['FLASK_DEBUG']
+    if ('CERTFILE' in list(environ.keys())) and ('CERTKEY' in list(environ.keys())):
+        app.run(port=port, debug=debug, ssl_context=(environ['CERTFILE'],environ['CERTKEY']))
+    else:
+        app.run(port=port, debug=debug)
